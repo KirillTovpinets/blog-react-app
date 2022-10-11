@@ -10,10 +10,10 @@ export interface ICommentFormProps {
 export function CommentForm ({ slug }: ICommentFormProps) {
   const [error, setError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const commentRef = useRef<HTMLInputElement>();
-  const nameRef = useRef<HTMLInputElement>();
-  const emailRef = useRef<HTMLInputElement>();
-  const storeDataRef = useRef<HTMLInputElement>();
+  const commentRef = useRef<HTMLTextAreaElement>() as React.MutableRefObject<HTMLTextAreaElement | null>;
+  const nameRef = useRef<HTMLInputElement>() as React.MutableRefObject<HTMLInputElement | null>;
+  const emailRef = useRef<HTMLInputElement>() as React.MutableRefObject<HTMLInputElement | null>;
+  const storeDataRef = useRef<HTMLInputElement>() as React.MutableRefObject<HTMLInputElement | null>;
 
   useEffect(() => {
     nameRef.current!.value = window.localStorage.getItem('name')!;
