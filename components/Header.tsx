@@ -1,21 +1,15 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Category } from '../interfaces/Category';
+import { PostService } from '../services/PostService';
 
-export interface IHeaderProps {
-}
+export function Header () {
+    const [categories, setCategories] = useState<Category[]>([]);
 
-const categories: Category[] = [
-    {
-        name: 'React',
-        slug: 'react',
-    },
-    {
-        name: 'Web Development',
-        slug: 'web-development'
-    }
-]
-export function Header (props: IHeaderProps) {
+    useEffect(() => {
+        const postService = new PostService();
+        postService.getCategories().then((list) => setCategories(list));
+    }, [])
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="border-b w-full inline-block border-blue-400 py-8">

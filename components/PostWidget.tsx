@@ -7,7 +7,7 @@ interface PostWidgetProps{
     slug?: string;
     categories?: string[];
 }
-const PostWidget: React.FC<PostWidgetProps> = ({ slug, categories}: PostWidgetProps) => {
+const PostWidget: React.FC<PostWidgetProps> = ({ slug, categories }: PostWidgetProps) => {
     const [ relatedPosts, setRelatedPosts ] = useState<PostInterface[]>([]);
 
     useEffect(() => {
@@ -19,10 +19,10 @@ const PostWidget: React.FC<PostWidgetProps> = ({ slug, categories}: PostWidgetPr
             postService.getRecentPosts(categories, slug)
                 .then(data => setRelatedPosts(data))
         }
-    }, [])
+    }, [slug])
     return (
         <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
-            <h3>
+            <h3 className="text-xl mb-8 font-semibold border-b pb-4">
                 { slug ? 'Related Posts' : 'Recent Posts'}
             </h3>
             { relatedPosts.map(post => (

@@ -1,4 +1,6 @@
 import { AuthorInterface } from "./AuthorInterface";
+import { Category } from "./Category";
+import { ContentInterface } from "./ContentInterface";
 import { ImageInterface } from "./ImageInterface";
 
 export interface PostInterface{
@@ -14,5 +16,9 @@ export interface PostInterface{
 
     author: AuthorInterface;
 
+    categories: Category[];
+
     createdAt: string;
+
+    content: ContentInterface;
 }
