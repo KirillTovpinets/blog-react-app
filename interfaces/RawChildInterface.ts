@@ -1,7 +1,7 @@
 import { ChildrenType } from "../types/ChildrenType";
-import { ChildrenInterface } from "./ChildrenInterface";
+import { ContentType } from "../types/types";
 
 export interface RawChildInterface{
     type: ChildrenType;
-    children: Array<ChildrenInterface>;
+    children: Array<ContentType>;
 }

@@ -73,7 +73,7 @@ const PostDetail: React.FunctionComponent<IPostDetailProps> = ({ post }: IPostDe
         </div>
         <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
         {post.content.raw.children.map((typeObj: RawChildInterface, index: number) => {
-          const children = typeObj.children.map((item: TextInterface, itemIndex: number) => getContentFragment(itemIndex, item.text, item));
+          const children = (typeObj.children as Array<TextInterface>).map((item: TextInterface, itemIndex: number) => getContentFragment(itemIndex, item.text, item));
           return getContentFragment(index, children, typeObj, typeObj.type);
         })}
       </div>
